@@ -7,9 +7,16 @@
  
  Create constants `isInTarget`, `isBelowTarget`, and `isAboveTarget` that equal expressions that evaluate to whether or not `currentHR` is between the lower and upper bounds, below the lower bound, and above the upper bound, respectively. Then write an if-else-if statement that will print "You're right on track!" if the user is inside the target zone, "You're doing great, but try to push it a bit!" if the user is below the target zone, and "You're on fire! Slow it down just a bit." if the user is above the target zone.
  */
+print("---- Page 5 ----")
 let targetLowerBound = 120
 let targetUpperBound = 150
 let currentHR = 147
-
-
+if currentHR >= targetLowerBound && currentHR <= targetUpperBound {
+    print("You're right on track!")
+} else if currentHR < targetLowerBound {
+    print("You're doing great, but try to push it a bit!")
+} else {
+    print("You're on fire! Slow it down just a bit.")
+}
+print("==== Page 5 Complete ====")
 //: [Previous](@previous)  |  page 5 of 9  |  [Next: Exercise - Switch Statements](@next)

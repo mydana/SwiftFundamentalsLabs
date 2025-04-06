@@ -7,8 +7,12 @@
 
  Now create a constant `percentOfGoal` of type `Double` that equals the percent of the goal that has been reached so far. You'll need to convert your constants of type `Int` to be of type `Double` in your calculation.
  */
-
-
+print("--- Page 8 ---")
+let steps = 3467
+let goal = 10000
+let percentOfGoal: Double = Double(steps) / Double(goal) * 100
+print("Percent of goal achieved: \(percentOfGoal)%")
+print("==== Print 8 Complete ====")
 /*:
 
  _Copyright © 2018 Apple Inc._

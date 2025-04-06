@@ -11,9 +11,17 @@
  - Goal number of steps: The user's goal for number of steps to take each day
  - Average heart rate: The user's average heart rate over the last 24 hours
  */
-
-
-
+print("Assumption is that this is part of an instance that tracks steps over one day")
+print("name is a constant, because the user does not change their name in one day")
+let name = "Dana Runge"
+print("age is a constant, because the scope of this is one day.")
+let age = 55
+print("setpsTakenToday will change as the user walks around")
+var stepsTakenToday = 10001
+print("goalNumberOfSteps is a constant, because the user does not change their goal in one day")
+let goalNumberOfSteps = 10000
+print("averageHeartRate, is cummulative over time, changes constantly.")
+var averageHeartRate = 68
 
 
 /*:

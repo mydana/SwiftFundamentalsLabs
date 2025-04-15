@@ -3,18 +3,83 @@
  
  If an app asks for a user's age, it may be because the app requires a user to be over a certain age to use some of the services it provides. Write a function called `checkAge` that takes one parameter of type `String`. The function should try to convert this parameter into an `Int` value and then check if the user is over 18 years old. If he/she is old enough, print "Welcome!", otherwise print "Sorry, but you aren't old enough to use our app." If the `String` parameter cannot be converted into an `Int` value, print "Sorry, something went wrong. Can you please re-enter your age?" Call the function and pass in `userInputAge` below as the single parameter. Then call the function and pass in a string that can be converted to an integer.
  */
+print("--- Exercise 3 ---")
 let userInputAge: String = "34e"
-
+func checkAge(age: String) -> Int? {
+    if let userAge: Int = Int(age) {
+        if userAge > 18 {
+            print("Welcome!")
+        } else {
+            print("Sorry, but you aren't old enough to use our app.")
+        }
+        return userAge
+    } else {
+        print("Sorry, something went wrong. Can you please re-enter your age?")
+        return nil
+    }
+}
+checkAge(age:userInputAge)
 /*:
  Go back and update your function to return the age as an integer. Will your function always return a value? Make sure your return type accurately reflects this. Call the function and print the return value.
  */
-
-
+print("................")
+print(checkAge(age:"56"))
+print(checkAge(age:"18"))
+print(checkAge(age:"Not going to tell you!!!"))
 /*:
  Imagine you are creating an app for making purchases. Write a function that will take the name of an item for purchase and will return the cost of that item. In the body of the function, check to see if the item is in stock by accessing it in the dictionary `stock`. If it is, return the price of the item by accessing it in the dictionary `prices`. If the item is out of stock, return `nil`. Call the function and pass in a `String` that exists in the dictionaries below. Print the return value.
  */
-var prices = ["Chips": 2.99, "Donuts": 1.89, "Juice": 3.99, "Apple": 0.50, "Banana": 0.25, "Broccoli": 0.99]
+var prices = ["Chips": 2.99, "Donuts": 1.89, "Juice": 3.99, "Apple": 0.50, "Banana": 0.25, "Broccoli": 0.99, "Eggs": 1.25]
 var stock = ["Chips": 4, "Donuts": 0, "Juice": 12, "Apple": 6, "Banana": 6, "Broccoli": 3]
 
+func checkPriceAndInventory(item: String) -> Double? {
+    if let itemPrice: Double = prices[item] {
+        if let inventory: Int = stock[item] {
+            if inventory != 0 {
+                return itemPrice
+            } else {
+                // No item in inventory
+                return nil
+            }
+            
+        } else {
+            // Item not found in stock dictionary
+            return nil
+        }
+    } else {
+        // Item not found in prices dictionary
+        return nil
+    }
+}
+
+print("Chips: \(checkPriceAndInventory(item: "Chips"))")
+print("Donuts: \(checkPriceAndInventory(item: "Donuts"))")
+print("Carrots: \(checkPriceAndInventory(item: "Carrots"))")
+print("Eggs: \(checkPriceAndInventory(item: "Eggs"))")
+
+
+
+
+print(",,,,,,,,,,,,,,,,,")
+func checkPriceAndInventory2(item: String) -> Double? {
+    guard let itemPrice: Double = prices[item] else {
+        // Item not found in prices dictionary
+        return nil
+    }
+    guard let inventory: Int = stock[item] else {
+        // Item not found in stock dictionary
+        return nil
+    }
+    guard inventory > 0 else {
+        // No item in inventory
+        return nil
+    }
+    return itemPrice
+}
+
+print("Chips: \(checkPriceAndInventory2(item: "Chips"))")
+print("Donuts: \(checkPriceAndInventory2(item: "Donuts"))")
+print("Carrots: \(checkPriceAndInventory2(item: "Carrots"))")
+print("Eggs: \(checkPriceAndInventory2(item: "Eggs"))")
 
 //: [Previous](@previous)  |  page 3 of 6  |  [Next: App Exercise - Food Functions](@next)
